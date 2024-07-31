@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca MySQL Node.js</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+    <h1>Biblioteca MySQL Node.js</h1>
+    <form action="/select" method="post">
+        <button type="submit">Select</button>
+    </form>
+
+    <form action="/insert" method="post">
+        <h2>Inserir Dados</h2>
+        <input type="text" name="nome" placeholder="Nome" required>
+        <input type="number" name="idade" placeholder="Idade" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">Inserir</button>
+    </form>
+
+    <form action="/update" method="post">
+        <h2>Atualizar Dados</h2>
+        <input type="number" name="id" placeholder="ID" required>
+        <input type="text" name="nome" placeholder="Nome" required>
+        <button type="submit">Atualizar</button>
+    </form>
+
+    <form action="/delete" method="post">
+        <h2>Deletar Dados</h2>
+        <input type="number" name="id" placeholder="ID" required>
+        <button type="submit">Deletar</button>
+    </form>
+
+    <% if (typeof results !== 'undefined') { %>
+    <h2>Resultados da Consulta</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Email</th>
+        </tr>
+        <% results.forEach(result => { %>
+        <tr>
+            <td><%= result.id %></td>
+            <td><%= result.nome %></td>
+            <td><%= result.idade %></td>
+            <td><%= result.email %></td>
+        </tr>
+        <% }); %>
+    </table>
+    <% } %>
+</div>
+</body>
+</html>
